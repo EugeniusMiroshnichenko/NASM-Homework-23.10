@@ -1,0 +1,9 @@
+execve("./summary", ["./summary"], 0x7ffd79d45580 /* 28 vars */) = 0
+write(1, "Enter first number:\n", 20)   = 20
+read(0, "-13414\n", 256)                = 7
+write(1, "Enter second number:\n", 21)  = 21
+read(0, "53455\n", 256)                 = 6
+write(1, "Sum is \n", 8)                = 8
+write(1, "\0\00040041\n", 8)            = 8
+exit(0)                                 = ?
++++ exited with 0 +++
