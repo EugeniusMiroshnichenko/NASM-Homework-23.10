@@ -126,6 +126,3 @@ section .data
 
 section .bss
     reversed_str resb 101  ; Буфер для перевернутой строки (100 символов + \n)
-
-
-
