@@ -1,8 +1,8 @@
-execve("./reversedStr", ["./reversedStr"], 0x7ffea3ffef10 /* 28 vars */) = 0
+execve("./reversedStr", ["./reversedStr"], 0x7ffd1c3e1980 /* 28 vars */) = 0
 write(1, "Enter string:", 13)           = 13
-read(0, "and\n", 8030606726233325568)   = 4
+read(0, "hello\n", 101)                 = 6
 write(1, "Reversed string:", 16)        = 16
-write(1, "dna\0", 4)                    = 4
+write(1, "olleh\0", 6)                  = 6
 write(1, "\n", 1)                       = 1
 exit(0)                                 = ?
 +++ exited with 0 +++

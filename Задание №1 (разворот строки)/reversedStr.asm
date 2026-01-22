@@ -10,14 +10,14 @@ _start:
     mov rdx, inMesLen
     syscall
 
-    cmp rax, inMesLen ; rax не меняется, код ошибки не теряем, если она есть
+    cmp rax, 0 ; rax не меняется, код ошибки не теряем, если она есть
     JL errorSection ; % Выведено меньше символов, чем ожидалось (если есть ошибка, то результат автоматически будет отрицательным)
 
     ; Считываем строку
     mov rax, 0
     mov rdi, 0
     mov rsi, string
-    mov rdx, [str_len]
+    mov rdx, 101
     syscall
     
     cmp rax, 0
@@ -37,7 +37,7 @@ _start:
     mov rdx, outMesLen
     syscall
 
-    cmp rax, outMesLen ; rax не меняется, код ошибки не теряем, если она есть
+    cmp rax, 0; rax не меняется, код ошибки не теряем, если она есть
     JL errorSection ; % Выведено меньше символов, чем ожидалось (если есть ошибка, то результат автоматически будет отрицательным)
 
     ; Выводим перевернутую строку
@@ -47,7 +47,7 @@ _start:
     mov rdx, [str_len]
     syscall
     
-    cmp rax, [str_len] ; rax не меняется, код ошибки не теряем, если она есть
+    cmp rax, 0 ; rax не меняется, код ошибки не теряем, если она есть
     JL errorSection ; % Выведено меньше символов, чем ожидалось (если есть ошибка, то результат автоматически будет отрицательным)
  
     ; Новая строка
@@ -57,7 +57,7 @@ _start:
     mov rdx, newLineLen
     syscall
 
-    cmp rax, newLineLen ; rax не меняется, код ошибки не теряем, если она есть
+    cmp rax, 0; rax не меняется, код ошибки не теряем, если она есть
     JL errorSection ; % Выведено меньше символов, чем ожидалось (если есть ошибка, то результат автоматически будет отрицательным)   
     
     ; Завершаем работу
@@ -121,8 +121,9 @@ section .data
     newLineLen equ $ - newLine
     string times 101 db 0     ; Исходная строка (100 символов + \n)
     str_len dd 0            ; Длина введенной строки
-    erMsg db "Error happed during writing!", "\n"
+    erMsg db "Error happed during writing!", 10
     erMsgLen equ $ - erMsg
 
 section .bss
     reversed_str resb 101  ; Буфер для перевернутой строки (100 символов + \n)
+
